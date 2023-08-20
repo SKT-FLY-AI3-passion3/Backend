@@ -3,7 +3,7 @@ FROM amazoncorretto:17-alpine-jdk
 
 # Set the working directory inside the container
 WORKDIR /app
-
+# name is myym
 # Copy the Spring Boot JAR file from the build/libs directory
 COPY build/libs/passion3.jar app.jar
 
