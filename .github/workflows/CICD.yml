@@ -18,6 +18,9 @@ jobs:
         distribution: 'corretto'
         java-version: '17'
 
+    - name: Grant execute permission to gradlew
+      run: chmod +x ./gradlew
+    
     - name: Build Spring Boot application
       run: ./gradlew clean build  # 또는 해당 빌드 명령어로 변경
 
