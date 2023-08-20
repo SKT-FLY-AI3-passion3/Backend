@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://your-server-name.mysql.database.azure.com:3306/your-database-name
+    username: your-username@your-server-name
+    password: your-password
+    driver-class-name: com.mysql.cj.jdbc.Driver
