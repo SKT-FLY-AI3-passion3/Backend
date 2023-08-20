@@ -2,7 +2,7 @@ name: Build and Deploy Docker Image
 on:
   push:
     branches:
-      - main  # 변경이 발생한 경우에만 워크플로우 실행
+      - main  
 
 jobs:
   build:
