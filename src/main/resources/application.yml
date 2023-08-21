@@ -1,6 +1,16 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect # MySQL에 맞는 방언 사용
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
   datasource:
-    url: jdbc:mysql://your-server-name.mysql.database.azure.com:3306/your-database-name
-    username: your-username@your-server-name
-    password: your-password
-    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    url: jdbc:mysql://chatbotdb.mysql.database.azure.com:3306/chatbot?useSSL=true
+    myDbConn: DriverManager.getConnection(url, "rlawogur0208", "jaehyoek02!");
+    username : rlawogur0208
+    password : jaehyoek02!

@@ -22,10 +22,13 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     // google cloud stt
-    implementation 'com.google.guava:guava:29.0-jre'
+    implementation 'com.google.guava:guava:30.0-jre'
     implementation 'com.google.cloud:google-cloud-speech:4.17.0'
     // Azure Database for MySQL
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
+    implementation 'mysql:mysql-connector-java:8.0.28'
+
+
+
 }
 
 jar {
