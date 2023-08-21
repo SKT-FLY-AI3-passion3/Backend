@@ -43,7 +43,7 @@ public class AudioService {
     }
 
     private Credentials getCredentials() throws Exception {
-        FileInputStream credentialsStream = new FileInputStream("C://Users//055//Downloads//vaulted-fort-358506-3f5080aabb57.json");
+        FileInputStream credentialsStream = new FileInputStream("./vaulted-fort-358506-3f5080aabb57.json");
         return GoogleCredentials.fromStream(credentialsStream);
     }
 }
