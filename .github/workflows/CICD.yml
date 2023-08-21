@@ -33,5 +33,6 @@ jobs:
     - name: Build and push Docker image
       run: |
         docker build -t jaehyuk00/passin3backend:${{ github.sha }} .
+        docker tag jaehyuk00/passin3backend:${{ github.sha }} jaehyuk00/passin3backend:latest
         docker push jaehyuk00/passin3backend:${{ github.sha }}
         docker push jaehyuk00/passin3backend:latest
