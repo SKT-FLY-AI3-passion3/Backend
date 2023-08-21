@@ -34,3 +34,4 @@ jobs:
       run: |
         docker build -t jaehyuk00/passin3backend:${{ github.sha }} .
         docker push jaehyuk00/passin3backend:${{ github.sha }}
+        docker push jaehyuk00/passin3backend:latest
