@@ -9,7 +9,7 @@ ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} passion3.jar
 
 # Copy the keystore file
-COPY .keystore .keystore
+COPY keystore.p12 keystore.p12
 
 # Copy the JSON credentials file
 COPY vaulted-fort-358506-3f5080aabb57.json vaulted-fort-358506-3f5080aabb57.json
