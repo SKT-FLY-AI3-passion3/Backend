@@ -6,8 +6,11 @@ import lombok.Setter;
 @Setter
 public class AudioRequest {
     private byte[] audioData;
+    private String extension;
 
-    public AudioRequest(byte[] audioData) {
+    public AudioRequest(byte[] audioData, String extension) {
         this.audioData = audioData;
+        this.extension = extension;
     }
 }
+
