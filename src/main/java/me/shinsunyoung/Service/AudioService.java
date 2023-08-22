@@ -16,12 +16,37 @@ import java.util.List;
 public class AudioService {
 
     public String convertAudioToText(AudioRequest audioRequest) throws Exception {
+        RecognitionConfig.AudioEncoding encoding;
+        String extension = audioRequest.getExtension();
+        int input_channel=1;
+        int sampling_rate=16000;
+        switch (extension) {
+            case "mp3":
+                encoding = RecognitionConfig.AudioEncoding.MP3;
+                break;
+            case "wav":
+                encoding = RecognitionConfig.AudioEncoding.LINEAR16;
+                break;
+            case "flac":
+                sampling_rate=44100;
+                input_channel=1;
+                encoding = RecognitionConfig.AudioEncoding.FLAC;
+                break;
+            case "ogg":
+                encoding = RecognitionConfig.AudioEncoding.OGG_OPUS;
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported file format: " + extension);
+        }
+        System.out.println(encoding);
         CredentialsProvider credentialsProvider = FixedCredentialsProvider.create(getCredentials());
         try (SpeechClient speechClient = SpeechClient.create(SpeechSettings.newBuilder().setCredentialsProvider(credentialsProvider).build())) {
             RecognitionConfig config =
                     RecognitionConfig.newBuilder()
-                            .setEncoding(RecognitionConfig.AudioEncoding.MP3)  // Set MP3 encoding
-                            .setSampleRateHertz(16000)
+                            .setEncoding(encoding)  // Set encoding based on file extension
+                            .setAudioChannelCount(input_channel)
+                            .setSampleRateHertz(sampling_rate)
+                            .setModel("latest_long") // 여기에 사용하려는 고급 모델을 지정합니다.
                             .setLanguageCode("ko-KR")
                             .build();
 
@@ -30,6 +55,7 @@ public class AudioService {
                     .build();
 
             RecognizeResponse response = speechClient.recognize(config, audio);
+            System.out.println(response);
             List<SpeechRecognitionResult> results = response.getResultsList();
 
             if (!results.isEmpty()) {
