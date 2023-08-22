@@ -17,6 +17,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests().requestMatchers("/.well-known/**").permitAll();
         http.authorizeHttpRequests().requestMatchers("/convert").permitAll();
         http.authorizeHttpRequests().requestMatchers("/").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/api/persons/insert").permitAll();
         return http.build();
     }
 }
