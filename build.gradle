@@ -25,6 +25,8 @@ dependencies {
     // google cloud stt
     implementation 'com.google.guava:guava:30.0-jre'
     implementation 'com.google.cloud:google-cloud-speech:4.17.0'
+    // google cloud tts
+    implementation 'com.google.cloud:google-cloud-texttospeech:2.24.0'
     // Azure Database for MySQL
     implementation 'mysql:mysql-connector-java:8.0.28'
 }
