@@ -19,7 +19,7 @@ spring:
     username : 'rlawogur0208'
     password : 'jaehyoek02!'
 server:
-  port: 8080
+  port: 443
   ssl:
     key-store-type: PKCS12
     key-store: keystore.p12
