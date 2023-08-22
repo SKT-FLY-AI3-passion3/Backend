@@ -15,9 +15,9 @@ spring:
         use_sql_comments: true
   datasource:
     url: jdbc:mysql://chatbotdb.mysql.database.azure.com:3306/chatbot?useSSL=true
-    myDbConn: DriverManager.getConnection(url, "rlawogur0208", "jaehyoek02!");
-    username : rlawogur0208
-    password : jaehyoek02!
+#    myDbConn: DriverManager.getConnection(url, "rlawogur0208", "jaehyoek02!");
+    username : 'rlawogur0208'
+    password : 'jaehyoek02!'
 server:
   port: 8080
   ssl:
