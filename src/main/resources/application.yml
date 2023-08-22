@@ -18,10 +18,10 @@ spring:
     myDbConn: DriverManager.getConnection(url, "rlawogur0208", "jaehyoek02!");
     username : rlawogur0208
     password : jaehyoek02!
-#server:
-#  ssl:
-#    key-store: .keystore
-#    key-store-password: 1234
-#    key-store-type: PKCS12
-#    key-alias: tomcat
-#  port: 8080
+server:
+  port: 8080
+  ssl:
+    key-store-type: PKCS12
+    key-store: keystore.p12
+    key-store-password: 1234
+    key-alias: passion3.sktchatbot.kr # alias 이름 확인이 필요할 수 있습니다.
