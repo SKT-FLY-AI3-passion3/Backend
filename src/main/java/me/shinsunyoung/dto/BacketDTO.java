@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BacketDTO {
-    private String name;
-    private int count;
-    private int price;
+    private String hamberger;
+    private  String side;
+    private String drinkanddessert;
 }

@@ -46,7 +46,7 @@ public class AudioService {
                             .setEncoding(encoding)  // Set encoding based on file extension
                             .setAudioChannelCount(input_channel)
                             .setSampleRateHertz(sampling_rate)
-                            .setModel("latest_long") // 여기에 사용하려는 고급 모델을 지정합니다.
+                            .setModel("default") // 여기에 사용하려는 고급 모델을 지정합니다.
                             .setLanguageCode("ko-KR")
                             .build();
 

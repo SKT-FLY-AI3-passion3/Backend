@@ -7,6 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 
@@ -15,7 +19,7 @@ public class AudioController {
     @Autowired
     private AudioService  audioService;
 
-    @PostMapping("/convert")
+    @PostMapping("/stt")
     public ResponseEntity<String> convertAudioToText(@RequestParam("file") MultipartFile audioFile) {
         try {
             String originalFilename = audioFile.getOriginalFilename();
@@ -27,6 +31,16 @@ public class AudioController {
             }
 
             byte[] audioData = audioFile.getBytes();
+
+            // 오디오 파일을 로컬에 저장
+            Path uploadsDir = Paths.get("uploads");
+            if (!Files.exists(uploadsDir)) {
+                Files.createDirectories(uploadsDir);  // 만약 디렉토리가 없다면 생성
+            }
+
+            Path outputPath = uploadsDir.resolve(originalFilename);
+            Files.write(outputPath, audioData);
+
             AudioRequest audioRequest = new AudioRequest(audioData, extension);
 
             String transcription = audioService.convertAudioToText(audioRequest);
@@ -36,6 +50,7 @@ public class AudioController {
                     .body("Error occurred during audio conversion: " + e.getMessage());
         }
     }
+
 
 
     @GetMapping("/")

@@ -14,17 +14,18 @@ public class BacketEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+
     private Long id;
-    private String name;
-    private int count;
-    private int price;
+    private String hamberger;
+    private  String side;
+    private String drinkanddessert;
 
     // 기본 생성자, 게터, 세터
 
     public BacketEntity(BacketDTO dto) {
-        this.name = dto.getName();
-        this.count = dto.getCount();
-        this.price=dto.getPrice();
+        this.hamberger = dto.getHamberger();
+        this.side = dto.getSide();
+        this.drinkanddessert=dto.getDrinkanddessert();
     }
 }
 
