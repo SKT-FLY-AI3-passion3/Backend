@@ -22,6 +22,7 @@ public class SecurityConfig {
         http.csrf().disable();
         http.authorizeHttpRequests().requestMatchers("/.well-known/**").permitAll();
         http.authorizeHttpRequests().requestMatchers("/stt").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/stt/vito").permitAll();
         http.authorizeHttpRequests().requestMatchers("/api/persons/insert").permitAll();
         http.authorizeHttpRequests().requestMatchers("/").permitAll();
         http.authorizeHttpRequests().requestMatchers("/tts/synthesize").permitAll();

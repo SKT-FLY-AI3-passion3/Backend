@@ -10,6 +10,7 @@ import me.shinsunyoung.dto.AudioRequest;
 import org.springframework.stereotype.Service;
 
 import java.io.FileInputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Service
@@ -46,7 +47,7 @@ public class AudioService {
                             .setEncoding(encoding)  // Set encoding based on file extension
                             .setAudioChannelCount(input_channel)
                             .setSampleRateHertz(sampling_rate)
-                            .setModel("default") // 여기에 사용하려는 고급 모델을 지정합니다.
+                            .setModel("latest_long") // 여기에 사용하려는 고급 모델을 지정합니다.
                             .setLanguageCode("ko-KR")
                             .build();
 
@@ -57,14 +58,25 @@ public class AudioService {
             RecognizeResponse response = speechClient.recognize(config, audio);
             System.out.println(response);
             List<SpeechRecognitionResult> results = response.getResultsList();
+            String transcript = "";
 
-            if (!results.isEmpty()) {
-                SpeechRecognitionAlternative alternative = results.get(0).getAlternatives(0);
-                String transcription = alternative.getTranscript();
-                return transcription;
-            } else {
-                return "No transcription available.";
+            for (SpeechRecognitionResult result : response.getResultsList()) {
+                // 현재 결과에서 가장 높은 신뢰도를 가진 대안을 가져옵니다.
+                SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
+                transcript += alternative.getTranscript() + "\n";
             }
+
+            System.out.println("Recognized Text: " + transcript);
+            return transcript;
+//            if (!results.isEmpty()) {
+//                SpeechRecognitionAlternative alternative = results.get(0).getAlternatives(0);
+//                String transcription = alternative.getTranscript();
+//
+//                System.out.println(transcription);
+//                return transcription;
+//            } else {
+//                return "No transcription available.";
+//            }
         }
     }
 
