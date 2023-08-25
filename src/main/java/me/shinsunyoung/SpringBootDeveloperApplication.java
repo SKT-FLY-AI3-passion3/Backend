@@ -1,9 +1,12 @@
 package me.shinsunyoung;
 
+import com.google.api.gax.core.BackgroundResource;
 import com.google.api.gax.core.CredentialsProvider;
 import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.Credentials;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.auth.oauth2.ServiceAccountCredentials;
+import com.google.cloud.dialogflow.cx.v3.*;
 import com.google.cloud.speech.v1p1beta1.SpeechSettings;
 import com.google.cloud.texttospeech.v1.*;
 import com.google.protobuf.ByteString;
@@ -18,6 +21,7 @@ import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -26,13 +30,17 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+import org.apache.commons.text.StringEscapeUtils;
+
 @EnableJpaAuditing
 @SpringBootApplication
 public class SpringBootDeveloperApplication {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(SpringBootDeveloperApplication.class, args);
+        String escapedText = "\\353\\247\\210\\354\\247\\200\\353\\247\\211\\354\\227\\220 \\353\\247\\220\\354\\224\\200\\354\\235\\204 \\354\\236\\230 \\353\\252\\273 \\354\\235\\264\\355\\225\\264 \\355\\225\\234\\352\\262\\203 \\352\\260\\231\\354\\225\\204\\354\\232\\224.";
+        String decodedText = StringEscapeUtils.unescapeJava(escapedText);
+        System.out.println(decodedText);
     }
-
 
 
     @Bean

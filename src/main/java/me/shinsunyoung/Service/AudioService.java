@@ -68,15 +68,6 @@ public class AudioService {
 
             System.out.println("Recognized Text: " + transcript);
             return transcript;
-//            if (!results.isEmpty()) {
-//                SpeechRecognitionAlternative alternative = results.get(0).getAlternatives(0);
-//                String transcription = alternative.getTranscript();
-//
-//                System.out.println(transcription);
-//                return transcription;
-//            } else {
-//                return "No transcription available.";
-//            }
         }
     }
 

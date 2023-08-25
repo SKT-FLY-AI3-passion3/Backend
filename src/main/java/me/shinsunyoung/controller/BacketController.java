@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/persons")
+@RequestMapping("/api/backet")
 public class BacketController {
 
     private final BacketService backetService;

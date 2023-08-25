@@ -1,6 +1,7 @@
 package me.shinsunyoung.controller;
 
 import me.shinsunyoung.Service.AudioService;
+import me.shinsunyoung.Service.SessionsCService;
 import me.shinsunyoung.Service.VITOService;
 import me.shinsunyoung.dto.AudioRequest;
 import me.shinsunyoung.dto.VITORequest;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -49,7 +51,6 @@ public class AudioController {
             Files.write(outputPath, audioData);
 
             AudioRequest audioRequest = new AudioRequest(audioData, extension);
-
             String transcription = audioService.convertAudioToText(audioRequest);
             System.out.println("Recognized Text2: " + transcription);
             HttpHeaders headers = new HttpHeaders();
@@ -96,11 +97,18 @@ public class AudioController {
     }
 
 
-
+    @Autowired
+    private SessionsCService sessionsCService;
 
     @GetMapping("/")
-    public String isAvailable() {
-        return "Server is running!";
-    }
+    public String isAvailable() throws IOException {
+        sessionsCService.make();
+//        String transcription=
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(new MediaType("text", "plain", Charset.forName("UTF-8")));
+        return "Server HI";
 
+
+    }
+//
 }

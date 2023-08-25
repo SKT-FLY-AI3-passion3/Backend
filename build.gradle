@@ -11,6 +11,8 @@ sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
+    google() // 이 줄을 추가하세요.
+
 }
 
 dependencies {
@@ -32,8 +34,21 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.28'
 
     implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation group: 'com.google.guava', name: 'guava', version: '32.1.2-jre'
+    implementation 'com.google.cloud:google-cloud-dialogflow-cx:0.34.0'
+//    implementation("io.grpc:grpc-okhttp:1.42.0")
+//    implementation("com.google.protobuf:protobuf-java:3.16.3")
+//    implementation("io.grpc:grpc-stub:1.42.0")
+//
+    implementation 'org.apache.commons:commons-text:1.10.0' // 최신 버전 확인
+
+
 }
 
+compileJava {
+    options.compilerArgs << '-Xlint:deprecation'
+}
 
 bootJar {
     archiveFileName = 'passion3.jar'
