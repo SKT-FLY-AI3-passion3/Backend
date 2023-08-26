@@ -37,16 +37,11 @@ import org.apache.commons.text.StringEscapeUtils;
 public class SpringBootDeveloperApplication {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(SpringBootDeveloperApplication.class, args);
-        String escapedText = "\\353\\247\\210\\354\\247\\200\\353\\247\\211\\354\\227\\220 \\353\\247\\220\\354\\224\\200\\354\\235\\204 \\354\\236\\230 \\353\\252\\273 \\354\\235\\264\\355\\225\\264 \\355\\225\\234\\352\\262\\203 \\352\\260\\231\\354\\225\\204\\354\\232\\224.";
-        String decodedText = StringEscapeUtils.unescapeJava(escapedText);
-        System.out.println(decodedText);
     }
 
 
     @Bean
     public ServletWebServerFactory servletContainer()
-
-
     {
         // Enable SSL Trafic
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
@@ -60,10 +55,8 @@ public class SpringBootDeveloperApplication {
                 context.addConstraint(securityConstraint);
             }
         };
-
         // Add HTTP to HTTPS redirect
         tomcat.addAdditionalTomcatConnectors(httpToHttpsRedirectConnector());
-
         return tomcat;
     }
     /*
