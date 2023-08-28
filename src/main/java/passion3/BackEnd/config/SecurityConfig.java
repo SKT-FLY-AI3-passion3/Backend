@@ -28,6 +28,10 @@ public class SecurityConfig {
         http.authorizeHttpRequests().requestMatchers("/").permitAll();
         http.authorizeHttpRequests().requestMatchers("/tts").permitAll();
         http.authorizeHttpRequests().requestMatchers("/food/*").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/swagger-ui/**").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/v3/api-docs/**").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/swagger-ui.html").permitAll();
+
 //        http.authorizeHttpRequests().anyRequest().permitAll();
         return http.build();
     }

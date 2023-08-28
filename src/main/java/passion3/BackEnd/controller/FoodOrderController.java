@@ -23,8 +23,15 @@ public class FoodOrderController {
     @Autowired
     private FoodOrderService foodOrderService;
 
+    @PostMapping("/test")
+    public ResponseEntity<String> printReceivedJson(@RequestBody String jsonPayload) {
+        System.out.println(jsonPayload);
+        return ResponseEntity.ok("JSON printed successfully");
+    }
+
     @PostMapping("/orders")
     public ResponseEntity<?> placeOrders(@RequestBody RequestDTO request) {
+        System.out.println(request);
         orderService.processOrder(request.getOrders());
         return ResponseEntity.ok("Orders processed");
     }

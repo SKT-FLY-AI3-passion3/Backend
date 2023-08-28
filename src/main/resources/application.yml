@@ -46,3 +46,5 @@ dialogflow:
   agentId: "f31dc17b-228d-4d2b-a0da-73f059ad997b"
   locationId: "asia-northeast1"
   languageCode: "ko-KR"
+
+springdoc.api-docs.protocol: https
