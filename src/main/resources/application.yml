@@ -39,7 +39,7 @@ google:
         projectId: "vaulted-fort-358506"
         agentId: "f31dc17b-228d-4d2b-a0da-73f059ad997b"
         credentials:
-          location: "./lunar_goal_396113_credentials.json"
+          location: "./vaulted-fort-358506-3f5080aabb57.json"
 
 dialogflow:
   projectId: "vaulted-fort-358506"
