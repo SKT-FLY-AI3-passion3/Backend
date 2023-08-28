@@ -30,15 +30,15 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}  # GitHub Secrets에 설정한 사용자명
         password: ${{ secrets.DOCKERHUB_TOKEN }}     # GitHub Secrets에 설정한 액세스 토큰
 
-    - name: Restore keystore.p12 from secrets
-      run: |
-        echo "${{ secrets.KEYSTORE_P12_CONTENT }}" | base64 -d > keystore.p12
+#    - name: Restore keystore.p12 from secrets
+#      run: |
+#        echo "${{ secrets.KEYSTORE_P12_CONTENT }}" | base64 -d > keystore.p12
 
-    - name: Create sensitive files from secrets
-      run: |
-        echo "${{ secrets.KEY_JSON_CONTENT }}" > key.json
-        echo "${{ secrets.VAULTED_FORT_CONTENT }}" > vaulted-fort-358506-3f5080aabb57.json
-        echo "${{ secrets.APPLICATION_DEFAULT_CREDENTIALS_CONTENT }}" > application_default_credentials.json
+#    - name: Create sensitive files from secrets
+#      run: |
+#        echo "${{ secrets.KEY_JSON_CONTENT }}" > key.json
+#        echo "${{ secrets.VAULTED_FORT_CONTENT }}" > vaulted-fort-358506-3f5080aabb57.json
+#        echo "${{ secrets.APPLICATION_DEFAULT_CREDENTIALS_CONTENT }}" > application_default_credentials.json
 
     - name: Build and push Docker image
       run: |
