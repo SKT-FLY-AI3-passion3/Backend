@@ -14,5 +14,6 @@ COPY keystore.p12 keystore.p12
 # Copy the JSON credentials file
 COPY key.json key.json
 COPY vaulted-fort-358506-3f5080aabb57.json vaulted-fort-358506-3f5080aabb57.json
+COPY application_default_credentials.json application_default_credentials.json
 # Set the entry point
 ENTRYPOINT ["java","-jar","/app/passion3.jar"]
