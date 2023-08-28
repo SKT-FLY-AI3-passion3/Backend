@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Service;
 @Service
-public class SessionsCService {
+public class ChatbotService {
     private static final String LOCATION_ID = "asia-northeast1";
     private static final String PROJECT_ID = "vaulted-fort-358506";
     private static final String AGENT_ID = "f31dc17b-228d-4d2b-a0da-73f059ad997b";
@@ -24,7 +24,7 @@ public class SessionsCService {
     private Map<String, SessionName> sessionMap = new ConcurrentHashMap<>();
 
 
-    public SessionsCService() throws IOException {
+    public ChatbotService() throws IOException {
         System.out.println("err");
     }
 

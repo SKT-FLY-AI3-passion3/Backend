@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class ChangeRequestDTO {
 
-    private FoodChangeDTO order1;
-    private FoodChangeDTO order2;
-    private FoodChangeDTO order3;
+    private String menu_changed1 ;
+    private String menu_changed2;
+    private String menu_changed3;
 
     // getters and setters
 }

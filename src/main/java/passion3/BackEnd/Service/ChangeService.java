@@ -12,6 +12,8 @@ import passion3.BackEnd.dto.FoodChangeDTO;
 
 import java.util.Optional;
 
+import static passion3.BackEnd.utils.JsonUtils.parseRefinedJson;
+
 @Service
 public class ChangeService {
 
@@ -21,13 +23,18 @@ public class ChangeService {
     @Autowired
     private SetmenuRepository setmenuRepository;
 
-    public void processChange(ChangeRequestDTO orderRequest) {
-        Change(orderRequest.getOrder1());
-        Change(orderRequest.getOrder2());
-        Change(orderRequest.getOrder3());
-    }
 
-    private void Change(FoodChangeDTO orderDto) {
+    public FoodChangeDTO parseChange(String invalidJson) throws Exception {
+        FoodChangeDTO dto = parseRefinedJson(invalidJson, FoodChangeDTO.class);
+        return dto;
+    }
+//    public void processChange(ChangeRequestDTO orderRequest) {
+//        Change(orderRequest.getOrder1());
+//        Change(orderRequest.getOrder2());
+//        Change(orderRequest.getOrder3());
+//    }
+
+    public void Change(FoodChangeDTO orderDto) {
         if (orderDto.getMenu() == null) return;
 
         Optional<Bucket> bucketOpt = bucketRepository.findByMain(orderDto.getMenu());

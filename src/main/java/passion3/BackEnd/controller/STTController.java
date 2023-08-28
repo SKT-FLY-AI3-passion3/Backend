@@ -1,7 +1,6 @@
 package passion3.BackEnd.controller;
 
 import passion3.BackEnd.Service.STTService;
-import passion3.BackEnd.Service.SessionsCService;
 import passion3.BackEnd.dto.AudioRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

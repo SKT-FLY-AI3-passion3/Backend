@@ -11,8 +11,12 @@ public class FoodChangeDTO {
     private String side;
     private String drink;
 
-    public boolean isValid() {
+    public boolean isSet() {
         return menu != null && menu.contains("세트");
+    }
+
+    public boolean isInvalid() {
+        return menu.equals("null")  && side.equals("null") && drink.equals("null");
     }
 
 }
