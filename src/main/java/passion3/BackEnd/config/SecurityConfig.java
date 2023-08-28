@@ -24,9 +24,10 @@ public class SecurityConfig {
         http.authorizeHttpRequests().requestMatchers("/stt").permitAll();
         http.authorizeHttpRequests().requestMatchers("/stt/vito").permitAll();
         http.authorizeHttpRequests().requestMatchers("/api/backet/insert").permitAll();
-        http.authorizeHttpRequests().requestMatchers("/chatbot/detectIntent").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/chatbot").permitAll();
         http.authorizeHttpRequests().requestMatchers("/").permitAll();
-        http.authorizeHttpRequests().requestMatchers("/tts/synthesize").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/tts").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/food/*").permitAll();
 //        http.authorizeHttpRequests().anyRequest().permitAll();
         return http.build();
     }

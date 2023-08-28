@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 @Service
-public class TextToSpeechService {
+public class TTSService {
 
     // Method to retrieve API credentials. It should be implemented based on your setup.
     private static Credentials getCredentials() throws Exception {

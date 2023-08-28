@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.util.List;
 
 @Service
-public class AudioService {
+public class STTService {
 
     public String convertAudioToText(AudioRequest audioRequest) throws Exception {
         RecognitionConfig.AudioEncoding encoding;
