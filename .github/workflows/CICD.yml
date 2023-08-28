@@ -36,6 +36,7 @@ jobs:
 
     - name: Create sensitive files from secrets
       run: |
+        echo "${{ secrets.KEY_JSON_CONTENT }}" > key.json
         echo "${{ secrets.VAULTED_FORT_CONTENT }}" > vaulted-fort-358506-3f5080aabb57.json
         echo "${{ secrets.APPLICATION_DEFAULT_CREDENTIALS_CONTENT }}" > application_default_credentials.json
 
