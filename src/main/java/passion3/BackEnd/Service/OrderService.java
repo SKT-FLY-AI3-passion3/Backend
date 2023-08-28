@@ -10,8 +10,10 @@ import passion3.BackEnd.Repository.FoodOrderRepository;
 import passion3.BackEnd.Repository.SingleRepository;
 import passion3.BackEnd.dto.FoodOrderDTO;
 import passion3.BackEnd.dto.OrderRequestDTO;
-
+import passion3.BackEnd.utils.JsonUtils;
 import java.util.Optional;
+
+import static passion3.BackEnd.utils.JsonUtils.parseRefinedJson;
 
 @Service
 public class OrderService {
@@ -25,20 +27,19 @@ public class OrderService {
     @Autowired
     private SingleRepository singleRepository;
 
-    public void processOrder(OrderRequestDTO orderRequest) {
-        processSingleOrder(orderRequest.getOrder1());
-        processSingleOrder(orderRequest.getOrder2());
-        processSingleOrder(orderRequest.getOrder3());
+    public FoodOrderDTO parseOrder(String invalidJson) throws Exception {
+        FoodOrderDTO dto = parseRefinedJson(invalidJson, FoodOrderDTO.class);
+        return dto;
     }
 
-    private void processSingleOrder(FoodOrderDTO orderDto) {
+    public void processSingleOrder(FoodOrderDTO orderDto) {
         if (orderDto == null) return;
-        if (orderDto.getMenu() == null || orderDto.getCount() == null) return;
-
+        if (orderDto.getMenu().equals("null") && orderDto.getCount()==null) return;;
         FoodOrder foodOrder = new FoodOrder();
 
         foodOrder.setMenu(orderDto.getMenu());
-        foodOrder.setCount(orderDto.getCount());
+        if(orderDto.getCount() == null) foodOrder.setCount(1);
+        else foodOrder.setCount(orderDto.getCount());
         foodOrderRepository.save(foodOrder);
 
         Bucket bucket = new Bucket();

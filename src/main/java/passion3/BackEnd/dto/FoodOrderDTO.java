@@ -10,11 +10,11 @@ public class FoodOrderDTO {
     private String menu;
     private Integer count;
 
-    public boolean isValid() {
-        return menu != null || count != null;
+    public boolean isInvalid() {
+        return menu .equals("null")  && count == null;
     }
 
     public boolean isSetMenu() {
-        return menu != null && menu.contains("세트");
+        return menu != "null" && menu.contains("세트");
     }
 }
