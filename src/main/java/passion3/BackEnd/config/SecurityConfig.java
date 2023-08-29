@@ -11,8 +11,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -22,8 +20,6 @@ public class SecurityConfig {
         http.csrf().disable();
         http.authorizeHttpRequests().requestMatchers("/.well-known/**").permitAll();
         http.authorizeHttpRequests().requestMatchers("/stt").permitAll();
-        http.authorizeHttpRequests().requestMatchers("/logs").permitAll();
-        http.authorizeHttpRequests().requestMatchers("/api/backet/insert").permitAll();
         http.authorizeHttpRequests().requestMatchers("/chatbot").permitAll();
         http.authorizeHttpRequests().requestMatchers("/").permitAll();
         http.authorizeHttpRequests().requestMatchers("/tts").permitAll();

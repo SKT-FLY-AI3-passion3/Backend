@@ -6,7 +6,6 @@ import passion3.BackEnd.Entity.Bucket;
 import passion3.BackEnd.Entity.Setmenu;
 import passion3.BackEnd.Repository.BucketRepository;
 import passion3.BackEnd.Repository.SetmenuRepository;
-import passion3.BackEnd.dto.ChangeRequestDTO;
 import passion3.BackEnd.dto.FoodChangeDTO;
 
 
@@ -28,11 +27,7 @@ public class ChangeService {
         FoodChangeDTO dto = parseRefinedJson(invalidJson, FoodChangeDTO.class);
         return dto;
     }
-//    public void processChange(ChangeRequestDTO orderRequest) {
-//        Change(orderRequest.getOrder1());
-//        Change(orderRequest.getOrder2());
-//        Change(orderRequest.getOrder3());
-//    }
+
 
     public void Change(FoodChangeDTO orderDto) {
         if (orderDto.getMenu() == null) return;

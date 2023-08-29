@@ -1,13 +1,20 @@
 package passion3.BackEnd.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import passion3.BackEnd.Entity.Bucket;
 import passion3.BackEnd.Service.BucketService;
 import passion3.BackEnd.Service.ChangeService;
 import passion3.BackEnd.Service.FoodOrderService;
 import passion3.BackEnd.Service.OrderService;
 import passion3.BackEnd.dto.*;
+
+import java.nio.charset.Charset;
+import java.util.List;
 
 
 @RestController
@@ -28,6 +35,7 @@ public class FoodOrderController {
         System.out.println(jsonPayload);
         return ResponseEntity.ok("JSON printed successfully");
     }
+
 
     @PostMapping("/orders")
     public ResponseEntity<String> processOrder(@RequestBody OrderRequestDTO orderRequestDTO) throws Exception {
@@ -57,10 +65,19 @@ public class FoodOrderController {
     }
 
     @GetMapping("/total")
-    public ResponseEntity<Integer> getTotalPrice() {
+    public ResponseEntity<TotalResponseDTO> getTotalPrice() {
         Integer totalPrice = bucketService.calculateTotalPrice();
-        return ResponseEntity.ok(totalPrice);
+        List<MenuLookupDTO> dataList = bucketService.getAllData();
+        StringBuilder result = new StringBuilder();
+        for (MenuLookupDTO data : dataList) {
+            result.append(data.getMain()).append(" ").append(data.getCount()).append("개 ");
+        }
+        result.append("주문하셔서 총 ").append(totalPrice).append("원 입니다.");
+        String finalResult = result.toString();
+        TotalResponseDTO response = new TotalResponseDTO(finalResult);
+        return ResponseEntity.ok(response);
     }
+    // 와퍼세트 1게 , ㅁㄴㅇㄴㅁㅇ 주문하셔서 총 ~~ 입니다.
     @DeleteMapping("/clear")
     public ResponseEntity<?> clearAllTables() {
         bucketService.deleteAllRecords();
