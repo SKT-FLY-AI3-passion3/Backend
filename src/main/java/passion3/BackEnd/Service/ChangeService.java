@@ -30,15 +30,19 @@ public class ChangeService {
 
 
     public void Change(FoodChangeDTO orderDto) {
-        if (orderDto.getMenu() == null) return;
-
-        Optional<Bucket> bucketOpt = bucketRepository.findByMain("세트");
+        Optional<Bucket> bucketOpt;
+        if (orderDto.getMenu().equals("null")) {
+            bucketOpt = bucketRepository.findByMainContaining("세트");
+        }
+        else {
+            bucketOpt = bucketRepository.findByMain(orderDto.getMenu());
+        }
         bucketOpt.ifPresent(bucket -> {
-            if (orderDto.getSide() != null) {
+            if (!orderDto.getSide().equals("null")) {
                 bucket.setSide(orderDto.getSide());
                 bucket.setPrice(bucket.getPrice()+(getPriceByMenuName(orderDto.getSide()))*bucket.getCount());
             }
-            if (orderDto.getDrink() != null) {
+            if (!orderDto.getDrink().equals("null")) {
                 bucket.setDrink(orderDto.getDrink());
                 bucket.setPrice(bucket.getPrice()+(getPriceByMenuName(orderDto.getDrink()))*bucket.getCount());
             }

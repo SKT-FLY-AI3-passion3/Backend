@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface BucketRepository extends JpaRepository<Bucket, Long> {
     Optional<Bucket> findByMain(String main);
-
+    Optional<Bucket> findByMainContaining(String main);
     @Query("SELECT SUM(b.price) FROM Bucket b")
     Integer getTotalPrice();
 
