@@ -32,7 +32,7 @@ public class ChangeService {
     public void Change(FoodChangeDTO orderDto) {
         if (orderDto.getMenu() == null) return;
 
-        Optional<Bucket> bucketOpt = bucketRepository.findByMain(orderDto.getMenu());
+        Optional<Bucket> bucketOpt = bucketRepository.findByMain("세트");
         bucketOpt.ifPresent(bucket -> {
             if (orderDto.getSide() != null) {
                 bucket.setSide(orderDto.getSide());
