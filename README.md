@@ -17,3 +17,7 @@
   환경 jdk17, gradle, Linux
   
   Docker hub 주소 : jaehyuk00/passion3backend
+
+# 도메인주소
+
+  https://passion3.sktchatbot.kr
