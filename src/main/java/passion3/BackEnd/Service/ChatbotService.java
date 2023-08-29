@@ -61,7 +61,6 @@ public class ChatbotService {
 
             // 챗봇의 요청하고 응답 받기
             DetectIntentResponse response = sessionsClient.detectIntent(request);
-            System.out.println(response);
             //응답의 쿼리결과에서 응답 메세지만 가져오기
             List<ResponseMessage> responseMessages= response.getQueryResult().getResponseMessagesList();
 

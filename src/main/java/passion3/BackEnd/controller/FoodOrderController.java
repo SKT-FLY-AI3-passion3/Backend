@@ -70,7 +70,7 @@ public class FoodOrderController {
         List<MenuLookupDTO> dataList = bucketService.getAllData();
         StringBuilder result = new StringBuilder();
         for (MenuLookupDTO data : dataList) {
-            result.append(data.getMain()).append(" ").append(data.getCount()).append("개 ");
+            result.append(data.getMain()).append(" ").append(data.getCount()).append("개, ");
         }
         result.append("주문하셔서 총 ").append(totalPrice).append("원 입니다.");
         String finalResult = result.toString();
