@@ -15,7 +15,7 @@ public interface BucketRepository extends JpaRepository<Bucket, Long> {
     @Query("SELECT SUM(b.price) FROM Bucket b")
     Integer getTotalPrice();
 
-    @Query("SELECT new passion3.BackEnd.dto.MenuLookupDTO(t.main, t.count) FROM Bucket t")
+    @Query("SELECT new passion3.BackEnd.dto.MenuLookupDTO(t.main, t.count, t.side, t.drink) FROM Bucket t")
     List<MenuLookupDTO> findMainAndCount();
 }
 

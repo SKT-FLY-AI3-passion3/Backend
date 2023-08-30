@@ -69,7 +69,20 @@ public class FoodOrderController {
         Integer totalPrice = bucketService.calculateTotalPrice();
         List<MenuLookupDTO> dataList = bucketService.getAllData();
         StringBuilder result = new StringBuilder();
+
         for (MenuLookupDTO data : dataList) {
+            boolean setchange=false;
+            if (data.getSide()!=null && !data.getSide().equals("프렌치프라이")) {
+                setchange=true;
+                result.append(data.getSide()).append(", ");
+            }
+            if (data.getSide()!=null && !data.getDrink().equals("코카콜라")) {
+                setchange=true;
+                result.append(data.getDrink()).append(", ");
+            }
+            if ( setchange ) {
+                result.append("로 구성된 ");
+            }
             result.append(data.getMain()).append(" ").append(data.getCount()).append("개, ");
         }
         result.append("주문하셔서 총 ").append(totalPrice).append("원 입니다.");
