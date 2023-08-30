@@ -74,14 +74,15 @@ public class FoodOrderController {
             boolean setchange=false;
             if (data.getSide()!=null && !data.getSide().equals("프렌치프라이")) {
                 setchange=true;
-                result.append(data.getSide()).append(", ");
+                result.append(data.getSide());
             }
             if (data.getSide()!=null && !data.getDrink().equals("코카콜라")) {
+                if ( setchange ) result.append(", ");
                 setchange=true;
-                result.append(data.getDrink()).append(", ");
+                result.append(data.getDrink());
             }
             if ( setchange ) {
-                result.append("로 구성된 ");
+                result.append("으로 바꾸신 ");
             }
             result.append(data.getMain()).append(" ").append(data.getCount()).append("개, ");
         }
