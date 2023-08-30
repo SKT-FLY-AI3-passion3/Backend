@@ -15,6 +15,6 @@ public class FoodOrderDTO {
     }
 
     public boolean isSetMenu() {
-        return menu != "null" && menu.contains("세트");
+        return menu.contains("세트");
     }
 }

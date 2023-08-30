@@ -8,6 +8,11 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+  thymeleaf:
+    prefix: classpath:/templates/  # 템플릿 파일 위치
+    suffix: .html  # 템플릿 파일 확장자
+    mode: HTML  # 템플릿 모드
+    cache: true  # 템플릿 캐싱 사용 여부 (개발 중일 때는 false로 설정할 수 있음)
 
   jpa:
     hibernate:
@@ -48,3 +53,13 @@ dialogflow:
   languageCode: "ko-KR"
 
 springdoc.api-docs.protocol: https
+
+DB_URL: jdbc:mysql://chatbotdb.mysql.database.azure.com:3306/chatbot?useSSL=true
+DB_USERNAME: rlawogur0208
+DB_PASSWORD: jaehyoek02!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=loggers:

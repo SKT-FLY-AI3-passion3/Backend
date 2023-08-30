@@ -23,6 +23,7 @@ public class ChatbotController {
     @PostMapping("/chatbot")
     public ResponseEntity<String> chatWithBot(@RequestBody ChatbotDTO chatbotDTO) throws IOException {
         SessionName session;
+        System.out.println(chatbotDTO.getSession());
         String sessionName = chatbotDTO.getSession();
         if (chatbotService.sessionExists(sessionName)) {
             session = chatbotService.getSession(sessionName);

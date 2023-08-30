@@ -59,7 +59,7 @@ public class OrderService {
         if (orderDto.isSetMenu()) {
             bucket.setSide("프렌치프라이");
             bucket.setDrink("코카콜라");
-            bucket.setPrice((bucket.getPrice()+2100+2000)* foodOrder.getCount());
+            bucket.setPrice((bucket.getPrice())* foodOrder.getCount());
         }
         else {
             bucket.setSide(null);

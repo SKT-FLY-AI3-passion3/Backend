@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+pre {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    white-space: pre-wrap;  /* This will wrap the text inside <pre> */
+    word-wrap: break-word; /* To prevent horizontal overflow */
+}
+
+/* Add any other styles as required */
