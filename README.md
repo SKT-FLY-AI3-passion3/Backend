@@ -1,5 +1,7 @@
 # Backend
-
+  FLY AI 3기
+  음성기반 AI CHATBOT 주문 서비스 프로젝트
+  
 # STT Service
 
   localhost:8080/convert
